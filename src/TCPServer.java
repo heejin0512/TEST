@@ -11,6 +11,8 @@ import java.net.Socket;
                                     // TODO Auto-generated method stub
                                     try{
                                         System.out.println("S: Connecting...");
+
+                                        System.out.println("good!");
                                         ServerSocket serverSocket = new ServerSocket(ServerPort);
 
                                         while (true) {
@@ -20,23 +22,23 @@ import java.net.Socket;
                                             try {
                                                 BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(),"UTF-8"));
                                                 String str = in.readLine();
-                            System.out.println("S: Received: '" + str + "'");
+                                            System.out.println("S: Received: '" + str + "'");
 
-                            PrintWriter out =  new PrintWriter( new BufferedWriter( new OutputStreamWriter(client.getOutputStream(),"UTF-8")),true);
-                            out.println("Server Message :  "+ str );
+                                            PrintWriter out =  new PrintWriter( new BufferedWriter( new OutputStreamWriter(client.getOutputStream(),"UTF-8")),true);
+                                            out.println("Server Message :  "+ str );
 
-                          /*  File f = new File("c:\\TCP_TEST.jpg");
-                            FileOutputStream output = new FileOutputStream(f);
+                                          /*  File f = new File("c:\\TCP_TEST.jpg");
+                                            FileOutputStream output = new FileOutputStream(f);
 
-                            DataInputStream dis = new DataInputStream(client.getInputStream());
+                                            DataInputStream dis = new DataInputStream(client.getInputStream());
 
-                            int b = 0;
-                            while((b= dis.read()) != -1){
-                                output.write(b);
-                            }
-                            output.flush();
-                            output.close();
-                            */
+                                            int b = 0;
+                                            while((b= dis.read()) != -1){
+                                                output.write(b);
+                                            }
+                                            output.flush();
+                                            output.close();
+                                            */
 
 
                 } catch(Exception e) {
