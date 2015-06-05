@@ -2,24 +2,24 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-public class TCPServer implements Runnable {
-    public static final int ServerPort = 9999; // ex: 5555
-    public static final String ServerIP = "211.111.174.25"; // ex: 192.168.0.100
+                            public class TCPServer implements Runnable {
+                                public static final int ServerPort = 9999; // ex: 5555
+                                public static final String ServerIP = "211.111.174.25"; // ex: 192.168.0.100
 
-    @Override
-    public void run() {
-        // TODO Auto-generated method stub
-        try{
-            System.out.println("S: Connecting...");
-            ServerSocket serverSocket = new ServerSocket(ServerPort);
+                                @Override
+                                public void run() {
+                                    // TODO Auto-generated method stub
+                                    try{
+                                        System.out.println("S: Connecting...");
+                                        ServerSocket serverSocket = new ServerSocket(ServerPort);
 
-                    while (true) {
-                        Socket client = serverSocket.accept();
-                        System.out.println("S: Receiving...");
+                                        while (true) {
+                                            Socket client = serverSocket.accept();
+                                            System.out.println("S: Receiving...");
 
-                        try {
-                            BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(),"UTF-8"));
-                            String str = in.readLine();
+                                            try {
+                                                BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream(),"UTF-8"));
+                                                String str = in.readLine();
                             System.out.println("S: Received: '" + str + "'");
 
                             PrintWriter out =  new PrintWriter( new BufferedWriter( new OutputStreamWriter(client.getOutputStream(),"UTF-8")),true);
